@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Lib_UrlDownload
@@ -25,23 +26,57 @@ namespace Lib_UrlDownload
             Url = url;
         }
         /// <summary>
+        /// Static method to return as a string the html of a site, with cancellationToken
+        /// </summary>
+        /// <param name="url">site's url</param>
+        /// <param name="ct">Cancelation Token</param>
+        /// <returns>HTML as string</returns>
+        public static async Task<string> SiteToString(string url, CancellationToken ct)
+        {
+            var httpHandler = new HttpClient();
+
+            var task = Task.Factory.StartNew(() => { return httpHandler.GetStringAsync(url); }, ct);
+
+            return await task.Result;
+        }
+        /// <summary>
         /// Static method to return as a string the html of a site
         /// </summary>
         /// <param name="url">site's url</param>
         /// <returns>HTML as string</returns>
         public static async Task<string> SiteToString(string url)
         {
-            var a = new HttpClient();
-            return await a.GetStringAsync(url);
+            var httpHandler = new HttpClient();
+
+            var task = Task.Factory.StartNew(() => { return httpHandler.GetStringAsync(url); });
+
+            return await task.Result;
+        }
+        /// <summary>
+        /// method to return as a string the html of a site seted in the constructor, with cancellationToken
+        /// </summary>
+        /// <param name="ct">Cancelation Token</param>
+        /// <returns>HTML as string</returns>
+        public async Task<string> SiteToString(CancellationToken ct)
+        {
+            var httpHandler = new HttpClient();
+
+            var task = Task.Factory.StartNew(() => { return httpHandler.GetStringAsync(Url); }, ct);
+
+            return await task.Result;
         }
         /// <summary>
         /// method to return as a string the html of a site seted in the constructor
         /// </summary>
+        /// <param name="ct">Cancelation Token</param>
         /// <returns>HTML as string</returns>
         public async Task<string> SiteToString()
         {
-            var a = new HttpClient();
-            return await a.GetStringAsync(Url);
+            var httpHandler = new HttpClient();
+
+            var task = Task.Factory.StartNew(() => { return httpHandler.GetStringAsync(Url); });
+
+            return await task.Result;
         }
 
     }
