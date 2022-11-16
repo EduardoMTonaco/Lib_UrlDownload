@@ -11,7 +11,7 @@ namespace Lib_UrlDownload
     /// <summary>
     /// Return the site http in string
     /// </summary>
-    public class UrlDownload
+    public class UrlDownload : IUrlDownload
     {
         /// <summary>
         /// The url of the site can be set in construtc
