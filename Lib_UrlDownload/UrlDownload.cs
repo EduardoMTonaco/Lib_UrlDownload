@@ -68,7 +68,6 @@ namespace Lib_UrlDownload
         /// <summary>
         /// method to return as a string the html of a site seted in the constructor
         /// </summary>
-        /// <param name="ct">Cancelation Token</param>
         /// <returns>HTML as string</returns>
         public async Task<string> SiteToString()
         {
