@@ -16,12 +16,12 @@ namespace Lib_UrlDownload
         /// method to return as a string the html of a site seted in the constructor
         /// </summary>
         /// <returns>HTML as string</returns>
-        Task<string> SiteToString();
+        Task<string> GetSiteToString();
         /// <summary>
         /// method to return as a string the html of a site seted in the constructor, with cancellationToken
         /// </summary>
         /// <param name="ct">Cancelation Token</param>
         /// <returns>HTML as string</returns>
-        Task<string> SiteToString(CancellationToken ct);
+        Task<string> GetSiteToString(CancellationToken ct);
     }
 }

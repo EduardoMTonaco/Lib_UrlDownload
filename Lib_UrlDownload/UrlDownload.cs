@@ -31,7 +31,7 @@ namespace Lib_UrlDownload
         /// <param name="url">site's url</param>
         /// <param name="ct">Cancelation Token</param>
         /// <returns>HTML as string</returns>
-        public static async Task<string> SiteToString(string url, CancellationToken ct)
+        public static async Task<string> GetSiteToString(string url, CancellationToken ct)
         {
             var httpHandler = new HttpClient();
 
@@ -44,7 +44,7 @@ namespace Lib_UrlDownload
         /// </summary>
         /// <param name="url">site's url</param>
         /// <returns>HTML as string</returns>
-        public static async Task<string> SiteToString(string url)
+        public static async Task<string> GetSiteToString(string url)
         {
             var httpHandler = new HttpClient();
 
@@ -57,7 +57,7 @@ namespace Lib_UrlDownload
         /// </summary>
         /// <param name="ct">Cancelation Token</param>
         /// <returns>HTML as string</returns>
-        public async Task<string> SiteToString(CancellationToken ct)
+        public async Task<string> GetSiteToString(CancellationToken ct)
         {
             var httpHandler = new HttpClient();
 
@@ -69,7 +69,7 @@ namespace Lib_UrlDownload
         /// method to return as a string the html of a site seted in the constructor
         /// </summary>
         /// <returns>HTML as string</returns>
-        public async Task<string> SiteToString()
+        public async Task<string> GetSiteToString()
         {
             var httpHandler = new HttpClient();
 
